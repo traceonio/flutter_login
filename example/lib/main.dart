@@ -54,6 +54,7 @@ class MyApp extends StatelessWidget {
           overline: TextStyle(fontFamily: 'NotoSans'),
         ),
       ),
+      initialRoute: 'auth',
       home: LoginScreen(),
       navigatorObservers: [TransitionRouteObserver()],
       routes: {
