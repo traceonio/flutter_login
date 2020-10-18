@@ -44,20 +44,20 @@ class LoginScreen extends StatelessWidget {
       logo: 'assets/images/ecorp.png',
       logoTag: Constants.logoTag,
       titleTag: Constants.titleTag,
-      // messages: LoginMessages(
+       messages: LoginMessages(
       //   usernameHint: 'Username',
       //   passwordHint: 'Pass',
       //   confirmPasswordHint: 'Confirm',
       //   loginButton: 'LOG IN',
-      //   signupButton: 'REGISTER',
-      //   forgotPasswordButton: 'Forgot huh?',
+         signupButton: null,
+         forgotPasswordButton: null,
       //   recoverPasswordButton: 'HELP ME',
       //   goBackButton: 'GO BACK',
       //   confirmPasswordError: 'Not match!',
       //   recoverPasswordIntro: 'Don\'t feel bad. Happens all the time.',
       //   recoverPasswordDescription: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
       //   recoverPasswordSuccess: 'Password rescued successfully',
-      // ),
+       ),
       // theme: LoginTheme(
       //   primaryColor: Colors.teal,
       //   accentColor: Colors.yellow,
@@ -135,14 +135,14 @@ class LoginScreen extends StatelessWidget {
       //   ),
       // ),
       emailValidator: (value) {
-        if (!value.contains('@') || !value.endsWith('.com')) {
-          return "Email must contain '@' and end with '.com'";
+        if (!RegExp(r'^.+?@.+\..{2,}$').hasMatch(value)) {
+          return "Email non valida";
         }
         return null;
       },
       passwordValidator: (value) {
         if (value.isEmpty) {
-          return 'Password is empty';
+          return 'Password mancante';
         }
         return null;
       },

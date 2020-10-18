@@ -565,6 +565,9 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
   }
 
   Widget _buildForgotPassword(ThemeData theme, LoginMessages messages) {
+    if (messages.forgotPasswordButton == null) {
+      return Container();
+    }
     return FadeIn(
       controller: _loadingController,
       fadeDirection: FadeDirection.bottomToTop,
@@ -597,6 +600,11 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
   }
 
   Widget _buildSwitchAuthButton(ThemeData theme, LoginMessages messages, Auth auth) {
+    String buttonMessage = auth.isSignup ? messages.loginButton : messages.signupButton;
+
+    if (buttonMessage == null) {
+      return Container();
+    }
     return FadeIn(
       controller: _loadingController,
       offset: .5,
